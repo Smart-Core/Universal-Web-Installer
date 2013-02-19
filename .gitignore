@@ -1,0 +1,7 @@
+/.idea/
+/_temp/
+/app/packages/*
+/vendor/
+!*.gitkeep
+!*.gitignore
+*.php~

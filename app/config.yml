@@ -1,0 +1,8 @@
+
+
+steps:
+    #- welcome
+    - requirements
+    - database
+    - admin_account
+    

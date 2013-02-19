@@ -1,0 +1,32 @@
+
+title: Server requirements
+
+fields:
+    notice:
+        type: info
+        value: Before proceeding with the full installation, we will carry out some tests on your server configuration to ensure that you are able to install and run our software.
+    config:
+        type: php_config
+        label: Required PHP settings
+        items:
+            php_version: #">=5.3.2"
+                min: 5.3.2
+                exclude: {'5.3.16', 5.4.0}
+                recommendation: ">=5.4.6"
+            register_globals: false
+            upload_max_filesize: '>=4mb"
+            session.autostart:
+                recommendation: 'off'
+    modules:
+        type: php_modules
+        label: Required PHP modules
+        items:
+            pdo_mysql: true
+    permissions:
+        type: file_permissions
+        label: Folders and files
+        write:
+            - my/var/cache/
+            - my/var/temp/
+            - my/app/config/parameters.ini
+            

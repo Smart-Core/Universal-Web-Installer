@@ -1,0 +1,28 @@
+
+title: Administrator account
+
+fields:
+    notice:
+        type: info
+        value: You may now set up an administrator account for yourself. This will allow you to manage the website through the control panel.
+    login:
+        type: text
+        label: Login
+        validation:
+            - NotBlank: ~
+            - MinLength: 3
+            - MaxLength: 20
+    email:
+        type: text
+        label: Email
+        validation:
+            - NotBlank: ~
+            - Email: ~
+    password:
+        type: password_repeated
+        label: Password
+        validation:
+            - NotBlank: ~
+            - Complexity: {'numeric', 'letter', 'symbols', 'case'}
+            - MinLength: 3
+            - MaxLength: 20

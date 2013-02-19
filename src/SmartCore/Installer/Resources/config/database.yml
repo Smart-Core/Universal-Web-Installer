@@ -1,0 +1,31 @@
+
+title: Database settings
+
+# Какой класс будет заниматься обработкой этих данных.
+pattern: database
+
+fields:
+    -
+        type: info
+        value: You may now set up an administrator account for yourself. This will allow you to manage the website through the control panel.
+    -
+        type: text
+        label: Hostname
+        name: db_hostname
+        default: localhost
+        validation:
+            - not_blank: ~
+    -
+        type: text
+        label: Username
+        name: db_username
+        validation:
+            - not_blank: ~
+    -
+        type: text
+        label: Username
+        name: db_username
+        validation:
+            - not_blank: ~
+
+            
