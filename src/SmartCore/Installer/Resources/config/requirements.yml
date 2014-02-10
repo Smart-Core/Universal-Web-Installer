@@ -14,9 +14,9 @@ fields:
                 exclude: {'5.3.16', 5.4.0}
                 recommendation: ">=5.4.6"
             register_globals: false
-            upload_max_filesize: '>=4mb"
+            upload_max_filesize: ">=4mb"
             session.autostart:
-                recommendation: 'off'
+                recommendation: "off"
     modules:
         type: php_modules
         label: Required PHP modules

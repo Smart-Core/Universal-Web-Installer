@@ -2,6 +2,7 @@
 /_temp/
 /app/packages/*
 /vendor/
+composer.lock
 !*.gitkeep
 !*.gitignore
 *.php~

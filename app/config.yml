@@ -1,8 +1,88 @@
 
+config:
+    title: 'Your application title'
+    description: 'This <strong>wizard</strong> will guide you through the installation process'
 
 steps:
-    #- welcome
-    - requirements
-    - database
-    - admin_account
-    
+    -
+        name: Welcome
+        class: SmartCore\Installer\Step\Welcome
+        disable: true
+    -
+        name: Language
+        class: SmartCore\Installer\Step\Language
+        disable: true
+    -
+        name: Requirements
+        class: SmartCore\Installer\Step\Requirements
+    -
+        name: Database
+        class: SmartCore\Installer\Step\Database
+        options:
+            types: ['pdo_mysql', 'pdo_pgsql']
+    -
+        name: SiteName
+        class: Example\Step\SiteName
+    -
+        name: AdminAccount
+        class: SmartCore\Installer\Step\AdminAccount
+
+
+
+step_Requirements:
+    title: Server requirements
+    notice:
+        type: info
+        value: Before proceeding with the full installation, we will carry out some tests on your server configuration to ensure that you are able to install and run our software.
+    config:
+        type: php_config
+        label: Required PHP settings
+        items:
+            php_version: #">=5.3.3"
+                min: 5.3.3
+                exclude: ['5.3.16', '5.4.0']
+                recommendation: ">=5.4.6"
+            register_globals: false
+            upload_max_filesize: ">=4mb"
+            session.autostart:
+                recommendation: "off"
+    modules:
+        type: php_modules
+        label: Required PHP modules
+        items:
+            pdo_mysql: true
+    permissions:
+        type: file_permissions
+        label: Folders and files
+        write:
+            - my/var/cache/
+            - my/var/temp/
+            - my/app/config/parameters.ini
+
+step_Database:
+    title: Database settings
+
+    notice:
+        type: info
+        value: You may now set up an administrator account for yourself. This will allow you to manage the website through the control panel.
+
+    fields:
+        -
+            type: text
+            label: Hostname
+            name: db_hostname
+            default: localhost
+            validation:
+                - not_blank: ~
+        -
+            type: text
+            label: Username
+            name: db_username
+            validation:
+                - not_blank: ~
+        -
+            type: text
+            label: Username
+            name: db_username
+            validation:
+                - not_blank: ~

@@ -27,5 +27,3 @@ fields:
         name: db_username
         validation:
             - not_blank: ~
-
-            
